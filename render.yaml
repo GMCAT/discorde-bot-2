@@ -1,0 +1,21 @@
+services:
+  - type: worker
+    name: discord-contacts-bot
+    runtime: python
+    plan: starter
+    buildCommand: pip install -r requirements.txt
+    startCommand: python -m bot.main
+    envVars:
+      - key: DISCORD_BOT_TOKEN
+        sync: false
+      - key: DISCORD_GUILD_ID
+        sync: false
+      - key: DISCORD_ADMIN_USER_IDS
+        sync: false
+      - key: DATABASE_URL
+        sync: false
+      - key: DB_SSLMODE
+        value: require
+      - key: DISCORD_TRIGGER_PREFIXES
+        value: บอท,bot,!
+
